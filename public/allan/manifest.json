@@ -1,0 +1,13 @@
+{
+  "manifest_version": 1,
+  "name": "Deflection Visualizer",
+  "short_name": "Zai",
+  "version": "1.0",
+  "display": "standalone",
+  "orientation": "landscape",
+  "theme_color": "#212121",
+  "background_color":"#212121",
+  "default_locale": "de",
+  "scope": "/",
+  "start_url": "/welcome.php"
+}

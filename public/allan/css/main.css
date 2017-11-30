@@ -1,0 +1,199 @@
+/* ----------------- */
+/* Navigation        */
+/* ----------------- */
+
+nav.nav-wrapper {
+  background-color: #212121;
+  color: #fff;
+  height: 8vh;
+}
+
+a.brand-logo {
+  top: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 0;
+}
+
+a.brand-logo span {
+  color: #777;
+}
+
+nav li {
+  border-left: 0.5px solid #777;
+  border-right: 0.5px solid #777;
+}
+
+/* ----------------- */
+/* Layout            */
+/* ----------------- */
+
+nav li {
+  width: 7vw;
+  height: 8vh;
+  text-align: center;
+}
+
+
+nav li:hover {
+  /*width: 100vw;*/
+  background-color: #414141;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#414141+0,212121+100 */
+  background-color: #212121; /* Old browsers */
+}
+
+main {
+  height: 86vh;
+}
+
+footer {
+  height: 4vh;
+  color: #fff;
+}
+
+footer div {
+  position: relative;
+  top: 0.5rem;
+}
+
+#ajaybachmann,
+#zai {
+  text-decoration: none;
+  color: #fff;
+}
+
+#ajaybachmann:hover {
+  color: #777;
+}
+#zai:hover {
+  color: #777;
+}
+
+div#ski {
+  height: 33vh;
+  vertical-align: bottom;
+display: table-cell;
+}
+
+#p5 {
+  height: 53vh;
+  border-top: 1px solid #777;
+}
+
+#welcome{
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+div.button-wrapper {
+  padding-top: 1.5rem !important;
+}
+
+.start {
+  padding: 1rem;
+}
+
+#welcomeTxt div {
+  padding: 1rem;
+  border: 1px solid #fff !important;
+}
+
+#auswahl li {
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+#auswahl li:hover {
+  background: #00BCD4;
+}
+
+#auswahl li a {
+  padding: 0.8rem;
+  display: block !important;
+  color: #fff;
+}
+
+.toast {
+  background-color: #424242;
+  border: 1px solid #fff;
+}
+
+/* ----------------- */
+/* @Media            */
+/* ----------------- */
+
+/* portrait and landscape */
+@media screen and (min-device-width : 768px)
+and (max-device-width : 1024px)  {
+
+  a.brand-logo {
+    line-height: 3rem;
+  }
+
+  nav.nav-wrapper {
+    height: 8vh;
+  }
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+  }
+
+  main {
+    width: 100vw;
+    height: 86vh;
+  }
+
+  footer {
+    width: 100vw;
+    height: 4vh;
+    line-height: 0;
+  }
+
+  footer div {
+    height: 4vh;
+  }
+
+}
+
+/* landscape */
+@media screen and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape)  {
+
+  nav.nav-wrapper {
+    height: 8vh;
+  }
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+  }
+
+  main {
+    width: 100vw;
+    height: 86vh;
+  }
+
+  footer {
+    width: 100vw;
+    height: 4vh;
+    line-height: 0;
+  }
+
+  footer div {
+    height: 4vh;
+  }
+
+}
