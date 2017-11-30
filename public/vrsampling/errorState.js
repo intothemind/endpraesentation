@@ -1,0 +1,3 @@
+function drawErrorState(){
+	background('red');
+}
