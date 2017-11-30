@@ -1,7 +1,0 @@
-{
-  "manifest_version": 1,
-  "name": "Interstellar",
-  "version": "1.0",
-  "display": "standalone",
-  "background_color":"rgb(255,255,255)"
-}
