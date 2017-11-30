@@ -225,9 +225,9 @@ ellipse(fluchtpunkt.x,fluchtpunkt.y,10,10);*/
 }
 
 function drawHorseshoe(left,top){
-  console.log('drawHorseshoe');
+  //console.log('drawHorseshoe');
     var horseshoe = muse.get('/muse/elements/horseshoe');
-    console.log(horseshoe);
+   // console.log(horseshoe);
 
     var vals = [horseshoe.leftEar,horseshoe.leftFront,horseshoe.rightFront,horseshoe.rightEar];
     var gap = 20;
