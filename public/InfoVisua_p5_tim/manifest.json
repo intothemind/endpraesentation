@@ -1,0 +1,7 @@
+{
+  "manifest_version": 1,
+  "name": "Tim",
+  "version": "1.0",
+  "display": "standalone",
+  "background_color":"rgb(255,255,255)"
+}
