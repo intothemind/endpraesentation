@@ -64,6 +64,8 @@ function draw() {
     } else if (status == 'dashboard') {
         drawDashboard();
     }
+
+    drawHorseshoe(50,height-50);
 }
 
 function drawnebeldorf() {
@@ -372,4 +374,41 @@ function updatePoints() {
     pos.x = pos.x + 3;
 
     points.push(pos.copy());
+}
+
+
+function drawHorseshoe(left, top) {
+    //console.log('drawHorseshoe');
+    var horseshoe = muse.get('/muse/elements/horseshoe');
+    // console.log(horseshoe);
+
+    var vals = [horseshoe.leftEar, horseshoe.leftFront, horseshoe.rightFront, horseshoe.rightEar];
+    var gap = 20;
+    var d = 10;
+    push();
+    translate(left, top);
+
+    //leftEar
+    for (var i = 0; i < vals.length; i++) {
+        var x = i * gap
+        var sensorVal = vals[i];
+        var col = getColor(sensorVal);
+        noStroke();
+        fill(col);
+        ellipse(x, 0, d, d);
+    }
+
+
+    pop();
+
+}
+
+function getColor(val) {
+    if (val == 1) {
+        return 'green';
+    } else if (val == 2) {
+        return 'orange';
+    } else if (val >= 3) {
+        return 'red';
+    } else return 'black';
 }

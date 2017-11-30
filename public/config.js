@@ -16,7 +16,7 @@ function getHost(){
 	}
 	else if(localNetwork){
 		//return '169.254.30.216:8080';
-		return '192.168.1.100:8080';
+		return '169.254.160.50:8080';
 	}
 	else return '127.0.0.1:8080';
 }
