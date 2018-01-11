@@ -26,7 +26,9 @@ var thresh = dynamicThreshold();
 
 
 //Nach etwa 10 Sekunden läuft die Grafik ab
-var startZeitMillis = 10 * 1000;
+var startZeitMillis = 3 * 1000;
+
+var nochmalsButton; 
 
 function preload() {
     img = loadImage("images/Landschaft.png");
@@ -38,6 +40,9 @@ function preload() {
     wolke5 = loadImage("images/wolke5.png");
     wolke6 = loadImage("images/wolke6.png");
     nebel_unten = loadImage("images/Nebel_unten.png");
+    Skala = loadImage("images/SKALA.png");
+    dasboard = loadImage("images/dasboard.png");
+
     //nebeldorf = loadImage("Nebeldorf.png");
 }
 
@@ -53,7 +58,28 @@ function setup() {
     points.push(p1);
     //points.push(p2);
 
+    nochmalsButton = createButton('Nochmals versuchen');
+    nochmalsButton.position(90,height-50);
+    nochmalsButton.mousePressed(replay);
+    nochmalsButton.hide();
+
     frameRate(28);
+}
+
+function replay(){
+    console.log('replay');
+
+     pos = createVector(1024, 650);
+    dir = createVector(4, 0);
+
+    var p1 = createVector(0, pos.y);
+    //var p2 = createVector(1024, pos.y);
+    points = [];
+    points.push(p1);
+    hoehe = 0;
+    status = "nebeldorf";
+
+    nochmalsButton.hide();
 }
 
 function draw() {
@@ -64,8 +90,6 @@ function draw() {
     } else if (status == 'dashboard') {
         drawDashboard();
     }
-
-    drawHorseshoe(50,height-50);
 }
 
 function drawnebeldorf() {
@@ -118,20 +142,22 @@ function drawEchtzeit() {
     
     hoehe = map(pos.y, 650, 100, 500, 5200);
     
-    fill(0);
-    textSize(30);
-    text(hoehe, 100, 70);
-    noStroke();
-    fill(rot, grün, blau);
-    rect(165,15,300, 70);
-    fill(0);
-    text("Meter", 170, 70);
+    //fill(0);
+    //textSize(30);
+    //text(hoehe, 100, 70);
+    //noStroke();
+    //fill(rot, grün, blau);
+    //rect(165,15,300, 70);
+    //fill(0);
+    //text("Meter", 170, 70);
     
 }
 
 
 
 function drawDashboard() {
+
+    nochmalsButton.show();
     background(255);
 
     //first and last points allow us to get minimum and maximum x value
@@ -154,13 +180,31 @@ function drawDashboard() {
     noStroke();
     rect(0,-1000, 7000, 1000);
     
-    fill(28,29,32)
-    textSize(250);
-    text("DASHBOARD", 700, 0);
+    //fill(28,29,32)
+    //textSize(250);
+    //text("DASHBOARD", 700, 0);
+    
+    //fill(255)
+    //textSize(100);
+    //text("DEINE BERGE SIND DURCHSCHNITTLICH 2300 METER HOCH!", 700, 1800);
+    
+    
+    push();
+    translate(0, 0)
+        //Hintergrundbild
+    image(dasboard, 0, -1000);
+    pop();
+    
     
     fill(255)
     textSize(100);
-    text("DEINE BERGE SIND DURCHSCHNITTLICH 2300 METER HOCH!", 700, 1800);
+   // text("Nochmals versuchen", 700, 4000);
+
+    // function mouseClicked() {
+    // text(status = "nebeldorf");
+    // // prevent default
+    // return false;
+    // }
     
     
     // push();
@@ -196,6 +240,7 @@ function drawLandscape() {
         //Hintergrundbild
     image(img, 0, 0);
     pop();
+    
 
 
     //berge
@@ -222,6 +267,7 @@ function drawLandscape() {
     vertex(pos.x, -250);
     endShape(CLOSE);
     //pop();
+    
 }
 
 
@@ -229,7 +275,13 @@ function drawClouds() {
     Nebelvertikal = map(pos.y, 650, 100, 760, 810);
 
     Nebelbewegung = Nebelbewegung + 0.09;
-
+           
+           push();
+    translate(0, 0)
+        //Hintergrundbild
+    image(Skala, pos.x-1024, 100);
+    pop();
+    
     push();
     translate(Nebelbewegung, Nebelvertikal)
         //Hintergrundbild
@@ -240,90 +292,85 @@ function drawClouds() {
     wolkebewegung2 = wolkebewegung2 - 0.4;
     wolkebewegung3 = wolkebewegung3 + 0.2;
 
-    push();
-    translate(wolkebewegung1, 200)
+    //push();
+    //translate(wolkebewegung1, 200)
         //Hintergrundbild
-    image(wolke4, 0, 0);
-    pop();
+    //image(wolke4, 0, 0);
+    //pop();
+
+
 
 
     push();
-    translate(wolkebewegung2, 100)
-        //Hintergrundbild
-    image(wolke2, 0, 0);
-    pop();
-
-
-    push();
-    translate(wolkebewegung3, 250)
+    translate(wolkebewegung3, 550)
         //Hintergrundbild
     image(wolke3, 0, 0);
     pop();
 
     push();
-    translate(wolkebewegung2 + 300, 90)
+    translate(wolkebewegung2 + 1100, 800)
         //Hintergrundbild
     image(wolke6, 0, 0);
     pop();
 
+    //push();
+    //translate(wolkebewegung1 + 500, 200)
+        //Hintergrundbild
+    //image(wolke4, 0, 0);
+    //pop();
+
+    //push();
+    //translate(wolkebewegung2 + 1000, 600)
+        //Hintergrundbild
+    //image(wolke6, 0, 0);
+    //pop();
+
     push();
-    translate(wolkebewegung1 + 500, 200)
+    translate(wolkebewegung1 + 1600, 600)
         //Hintergrundbild
     image(wolke4, 0, 0);
     pop();
 
-    push();
-    translate(wolkebewegung2 + 1000, 90)
-        //Hintergrundbild
-    image(wolke5, 0, 0);
-    pop();
 
     push();
-    translate(wolkebewegung1 + 1400, 50)
-        //Hintergrundbild
-    image(wolke4, 0, 0);
-    pop();
-
-
-    push();
-    translate(wolkebewegung2 + 1600, 20)
+    translate(wolkebewegung2 + 1900, 800)
         //Hintergrundbild
     image(wolke6, 0, 0);
     pop();
 
 
     push();
-    translate(wolkebewegung2 + 2000, 150)
+    translate(wolkebewegung2 + 2900, 550)
+        //Hintergrundbild
+    image(wolke2, 0, 0);
+    pop();
+
+    //push();
+    //translate(wolkebewegung1 + 3100, 100)
+        //Hintergrundbild
+    //image(wolke2, 0, 0);
+    //pop();
+
+    //push();
+    //translate(wolkebewegung2 + 3400, 650)
+        //Hintergrundbild
+    //image(wolke5, 0, 0);
+    //pop();
+
+    push();
+    translate(wolkebewegung1 + 3100, 620)
         //Hintergrundbild
     image(wolke2, 0, 0);
     pop();
 
     push();
-    translate(wolkebewegung1 + 3100, 100)
-        //Hintergrundbild
-    image(wolke2, 0, 0);
-    pop();
-
-    push();
-    translate(wolkebewegung2 + 3400, 90)
-        //Hintergrundbild
-    image(wolke5, 0, 0);
-    pop();
-
-    push();
-    translate(wolkebewegung1 + 3800, 120)
-        //Hintergrundbild
-    image(wolke2, 0, 0);
-    pop();
-
-    push();
-    translate(wolkebewegung1 + 4000, 20)
+    translate(wolkebewegung1 + 3700, 550)
         //Hintergrundbild
     image(wolke4, 0, 0);
     pop();
 
     push();
-    translate(wolkebewegung1 + 4600, 20)
+    translate(wolkebewegung1 + 4200, 20)
         //Hintergrundbild
     image(wolke2, 0, 0);
     pop();
@@ -336,13 +383,13 @@ function drawClouds() {
     pop();
 
     push();
-    translate(wolkebewegung2 + 5555, 50)
+    translate(wolkebewegung2 + 5555, 570)
         //Hintergrundbild
     image(wolke6, 0, 0);
     pop();
 
     push();
-    translate(wolkebewegung1 + 6000, 80)
+    translate(wolkebewegung1 + 6000, 900)
         //Hintergrundbild
     image(wolke4, 0, 0);
     pop();
@@ -374,41 +421,4 @@ function updatePoints() {
     pos.x = pos.x + 3;
 
     points.push(pos.copy());
-}
-
-
-function drawHorseshoe(left, top) {
-    //console.log('drawHorseshoe');
-    var horseshoe = muse.get('/muse/elements/horseshoe');
-    // console.log(horseshoe);
-
-    var vals = [horseshoe.leftEar, horseshoe.leftFront, horseshoe.rightFront, horseshoe.rightEar];
-    var gap = 20;
-    var d = 10;
-    push();
-    translate(left, top);
-
-    //leftEar
-    for (var i = 0; i < vals.length; i++) {
-        var x = i * gap
-        var sensorVal = vals[i];
-        var col = getColor(sensorVal);
-        noStroke();
-        fill(col);
-        ellipse(x, 0, d, d);
-    }
-
-
-    pop();
-
-}
-
-function getColor(val) {
-    if (val == 1) {
-        return 'green';
-    } else if (val == 2) {
-        return 'orange';
-    } else if (val >= 3) {
-        return 'red';
-    } else return 'black';
 }
