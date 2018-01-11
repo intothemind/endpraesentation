@@ -188,7 +188,8 @@ function drawDashboard() {
     image(dashImg, 0, 0);
     peakAverage = peakSumm / peakCounter;
     var mountainImg = createMountain(coreHeight, peakAverage);
-    image(mountainImg, 0, 0);
+    var mountainImg2 = mountainImg.get(0,0,mountainImg.width,mountainImg.height);
+    image(mountainImg2, 0, 0);
 
     noLoop();
 }
