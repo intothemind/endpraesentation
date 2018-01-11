@@ -9,8 +9,8 @@ ______ _      _     _   _              _   _               _
                           |___/                                          
 */
 
-//var muse = musedata.connect(getHost());
-var muse = musedata.fake();
+var muse = musedata.connect(getHost());
+//var muse = musedata.fake();
 var ypos = 0;           //starting position
 var dir = 0;            //increasing or decreasing mountain
 var speed = 1;          //Speed of mountain growth
@@ -154,7 +154,8 @@ function drawRealtime() {
     //anstatt direkt in den canvas, wird der Berg jetzt in das graphics object gezeichnet.
    drawMountain();
 
-   image(pg, 0, 0);
+   var theImg = pg.get(0,0,pg.width,pg.height);
+   image(theImg, 0, 0);
 
     text(timer, width / 2, 700);
 
@@ -194,7 +195,8 @@ function drawDashboard() {
 
 function drawMountain2(){
     
-    pg.fill(0,0,255);
+   // pg.clear();
+    pg.fill(0,255,0);
     //pg.push();
     pg.ellipse(random(0,width),random(0,height),20,20);
     //pg.pop();
