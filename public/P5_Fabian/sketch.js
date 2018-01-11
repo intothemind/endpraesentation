@@ -21,6 +21,9 @@ var hoehe = 0;
 //var time = [1];
 //var blau = 149;
 
+var dauer = 7000;
+
+
 //variable storing dynamic threshold
 var thresh = dynamicThreshold();
 
@@ -41,7 +44,7 @@ function preload() {
     wolke6 = loadImage("images/wolke6.png");
     nebel_unten = loadImage("images/Nebel_unten.png");
     Skala = loadImage("images/SKALA.png");
-    dasboard = loadImage("images/dasboard.png");
+    dasboard = loadImage("images/dasboard2.png");
 
     //nebeldorf = loadImage("Nebeldorf.png");
 }
@@ -136,7 +139,7 @@ function drawEchtzeit() {
     drawClouds();
     pop();
 
-    if (pos.x >= /*6500*/ 7000) {
+    if (pos.x >= /*6500*/ dauer) {
         status = "dashboard";
     }
     
@@ -188,13 +191,7 @@ function drawDashboard() {
     //textSize(100);
     //text("DEINE BERGE SIND DURCHSCHNITTLICH 2300 METER HOCH!", 700, 1800);
     
-    
-    push();
-    translate(0, 0)
-        //Hintergrundbild
-    image(dasboard, 0, -1000);
-    pop();
-    
+
     
     fill(255)
     textSize(100);
@@ -228,6 +225,16 @@ function drawDashboard() {
     // endShape(CLOSE);
     // pop();
     pop();
+
+
+    push();
+    translate(0, 0)
+        //Hintergrundbild
+   // image(SKALA, 0, 0);
+   
+    image(dasboard, 0, 0);
+    pop();
+    
 
 }
 
